@@ -1,3 +1,4 @@
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NextPage } from "next";
@@ -60,7 +61,13 @@ const Signup: NextPage = () => {
                 setPasswordVisible(!passwordVisible);
               }}
             >
-              <FontAwesomeIcon icon={passwordVisible ? faEye : faEyeSlash} />
+              <FontAwesomeIcon
+                icon={
+                  passwordVisible
+                    ? (faEye as IconProp)
+                    : (faEyeSlash as IconProp)
+                }
+              />
             </button>
           </div>
           <button
