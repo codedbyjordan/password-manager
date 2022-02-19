@@ -9,7 +9,9 @@ import Entry from "../components/Entry";
 import VaultEntry from "../types/VaultEntry";
 import EntryEditor from "../components/EntryEditor";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "@fortawesome/free-solid-svg-icons";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 const Dashboard: NextPage = () => {
   const [user] = useContext(UserContext);
@@ -30,7 +32,7 @@ const Dashboard: NextPage = () => {
       <h1 className="font-bold text-3xl">Your Vault</h1>
       <button onClick={() => setShowNewEntry(true)}>
         <FontAwesomeIcon
-          icon={faPlusCircle}
+          icon={faPlusCircle as IconProp}
           className="text-indigo-500 text-3xl"
         />
       </button>
