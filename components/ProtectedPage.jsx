@@ -1,13 +1,12 @@
 import { useRouter } from "next/router";
-import React, { useContext, useEffect, useLayoutEffect } from "react";
-import { UserContext } from "../contexts/UserContext";
+import React, { useLayoutEffect } from "react";
+import { supabase } from "../utils/supabase";
 
 const ProtectedPage = ({ children }) => {
-  const [user, setUser] = useContext(UserContext);
   const { push } = useRouter();
 
   useLayoutEffect(() => {
-    if (!user) push("/");
+    if (!supabase.auth.user()) push("/");
   }, []);
 
   return <>{children}</>;
